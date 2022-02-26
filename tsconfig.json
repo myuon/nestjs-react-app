@@ -19,5 +19,5 @@
     "noFallthroughCasesInSwitch": false
   },
   "exclude": ["web"],
-  "include": ["src"]
+  "include": ["src", "test"]
 }
