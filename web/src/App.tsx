@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { getApiEndpoint } from './util';
 
 interface Me {
   name: string;
@@ -11,7 +12,7 @@ const useMe = () => {
   const [state, setState] = useState<Me>();
   useEffect(() => {
     (async () => {
-      const resp = await fetch('http://localhost:3000/api/me');
+      const resp = await fetch(`${getApiEndpoint()}/me`);
       if (resp.ok) {
         setState(await resp.json());
       } else {

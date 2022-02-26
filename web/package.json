@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --port 3030",
+    "dev": "API_ENDPOINT=http://localhost:3000 vite --port 3030",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
