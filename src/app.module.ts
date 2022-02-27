@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { MeController } from './me/me.controller';
 import { WebModule } from './web/web.module';
+import { ApiModule } from './api/api.module';
 
 @Module({
-  imports: [WebModule.forRoot()],
-  controllers: [AppController, MeController],
-  providers: [AppService],
+  imports: [
+    // /api
+    ApiModule,
+    // / (proxy for web or localhost:3000)
+    WebModule,
+  ],
 })
 export class AppModule {}

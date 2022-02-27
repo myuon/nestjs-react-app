@@ -1,13 +1,12 @@
-import { HttpService } from '@nestjs/axios';
-import { Controller, Get } from '@nestjs/common';
+import { All, Controller, Get, Options, Req, Res } from '@nestjs/common';
+import { Request, Response } from 'express';
+import { map } from 'rxjs/operators';
+import { ProxyService } from './proxy.service';
 
-@Controller('proxy')
+@Controller('*')
 export class ProxyController {
-  constructor(private httpService: HttpService) {}
+  constructor(private proxyService: ProxyService) {}
 
-  @Get()
-  findAll() {
-    console.log('proxy');
-    return this.httpService.get('http://localhost:3030');
-  }
+  @All()
+  findAll(@Req() request: Request, @Res() response: Response) {}
 }
