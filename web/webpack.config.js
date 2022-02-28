@@ -5,7 +5,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: path.resolve(__dirname, './src/index.tsx'),
+  entry: [path.resolve(__dirname, './src/index.tsx')],
   devtool: isProd ? undefined : 'inline-source-map',
   module: {
     rules: [
@@ -19,6 +19,7 @@ module.exports = {
               '@babel/preset-react',
               '@babel/preset-typescript',
             ],
+            plugins: ['@babel/plugin-transform-runtime'],
           },
         },
         exclude: /node_modules/,

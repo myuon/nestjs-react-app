@@ -13,13 +13,18 @@ async function bootstrap() {
     const require = createRequire(__dirname);
     const webpack = require('webpack');
     const webpackDevMiddleware = require('webpack-dev-middleware');
+    const webpackHotMiddleware = require('webpack-hot-middleware');
 
     const config = require(path.resolve(
       __dirname,
       '../../web/webpack.config.js',
     ));
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.entry.push('webpack-hot-middleware/client?reload=true');
+
     const compiler = webpack(config);
     app.use(webpackDevMiddleware(compiler));
+    app.use(webpackHotMiddleware(compiler));
   }
 
   await app.listen(3000);

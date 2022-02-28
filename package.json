@@ -21,22 +21,20 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/axios": "^0.0.6",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.3.1",
     "@nestjs/serve-static": "^2.2.2",
-    "axios": "^0.26.0",
     "reflect-metadata": "^0.1.13",
-    "rimraf": "^3.0.2",
-    "rxjs": "^7.5.4",
-    "vite": "^2.8.4"
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@babel/runtime": "^7.17.2",
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
@@ -61,7 +59,8 @@
     "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5",
     "webpack": "^5.69.1",
-    "webpack-dev-middleware": "^5.3.1"
+    "webpack-dev-middleware": "^5.3.1",
+    "webpack-hot-middleware": "^2.25.1"
   },
   "jest": {
     "moduleFileExtensions": [
