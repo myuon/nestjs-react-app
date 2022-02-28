@@ -16,8 +16,7 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  },
-  "exclude": ["web"],
-  "include": ["src", "test"]
+    "noFallthroughCasesInSwitch": false,
+    "jsx": "react"
+  }
 }
