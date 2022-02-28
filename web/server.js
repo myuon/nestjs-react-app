@@ -33,7 +33,9 @@ async function defineServer(app) {
       template = await vite.transformIndexHtml(url, template);
 
       if (SSR) {
-        const { render } = await vite.ssrLoadModule('./src/entry-server.tsx');
+        const { render } = await vite.ssrLoadModule(
+          path.resolve(__dirname, './src/entry-server.tsx'),
+        );
         const appHtml = await render(url);
         const html = template.replace(`<!--ssr-outlet-->`, appHtml);
 
@@ -58,3 +60,7 @@ async function createServer() {
 }
 
 createServer();
+
+module.exports = {
+  defineServer,
+};
