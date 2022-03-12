@@ -3,6 +3,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module';
 import * as path from 'path';
 import { createRequire } from 'module';
+import * as express from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -25,6 +26,14 @@ async function bootstrap() {
     const compiler = webpack(config);
     app.use(webpackDevMiddleware(compiler));
     app.use(webpackHotMiddleware(compiler));
+  } else {
+    app.use(express.static(path.resolve(__dirname, 'web')));
+    app.use('/', (req, res, next) => {
+      if (req.path.startsWith('/api')) {
+        next();
+      }
+      res.sendFile(path.resolve(__dirname, 'web/index.html'));
+    });
   }
 
   await app.listen(3000);

@@ -9,7 +9,7 @@ const useMe = () => {
         const data = await resp.json();
         setState(data);
       } else {
-        setState(null);
+        setState(undefined);
         console.error(await resp.text());
       }
     })();
