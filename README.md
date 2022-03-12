@@ -1,4 +1,4 @@
-# scaling-enigma
+# nestjs-react-app
 
 ## Start dev server
 
