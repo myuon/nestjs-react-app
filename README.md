@@ -11,3 +11,9 @@ $ yarn start:dev
 ```
 $ yarn build && cp -r web/dist dist/web && yarn start:prod
 ```
+
+## Or use docker in prod
+
+```
+$ docker build -t app . && docker run -p 80:3000 -d app
+```
